@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 const BG      = "#F8F7F4";
-const BLACK   = "#1A1916";
-const BORDER  = "#E2DED8";
-const MUTED   = "#9E9A94";
+const BLACK   = "#0D0C0A";
+const BORDER  = "#C8C3BB";
+const MUTED   = "#5A5650";
 const HOVER   = "#EFEDE8";
-const GREEN   = "#2D6A4F";
-const AMBER   = "#92400E";
+const GREEN   = "#166534";
+const AMBER   = "#78350F";
 
 const sites = [
   {
@@ -204,10 +204,10 @@ export default function AllMyStuff() {
           margin: "0 -0.75rem",
           borderTop: `1px solid ${BORDER}`,
         }}>
-          <span style={{ fontSize: "0.68rem", color: BORDER, paddingTop: "0.15rem" }}>
+          <span style={{ fontSize: "0.68rem", color: MUTED, paddingTop: "0.15rem" }}>
             {String(sites.length + 1).padStart(2, "0")}
           </span>
-          <span style={{ fontSize: "0.82rem", color: BORDER, letterSpacing: "0.02em" }}>
+          <span style={{ fontSize: "0.82rem", color: MUTED, letterSpacing: "0.02em" }}>
             next thing...
           </span>
         </div>
@@ -220,10 +220,10 @@ export default function AllMyStuff() {
         display: "flex", justifyContent: "space-between",
         alignItems: "center", flexWrap: "wrap", gap: "0.5rem",
       }}>
-        <span style={{ fontSize: "0.68rem", color: BORDER, letterSpacing: "0.04em" }}>
+        <span style={{ fontSize: "0.68rem", color: MUTED, letterSpacing: "0.04em" }}>
           updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}
         </span>
-        <span style={{ fontSize: "0.68rem", color: BORDER, letterSpacing: "0.04em" }}>
+        <span style={{ fontSize: "0.68rem", color: MUTED, letterSpacing: "0.04em" }}>
           tderuvo
         </span>
       </footer>
