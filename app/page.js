@@ -41,6 +41,16 @@ const sites = [
   },
   {
     id: "05",
+    name: "Branded Messaging",
+    url: "https://brandedmessaging.com",
+    repo: "https://github.com/tderuvo/brandedmessaging-next",
+    desc: "The human-friendly side of RCS — verified, rich, branded business messaging across North America.",
+    tags: ["Messaging", "B2B", "RCS"],
+    status: "live",
+    color: RED,
+  },
+  {
+    id: "06",
     name: "MentalFu",
     url: "https://meek-truffle-5a0eb5.netlify.app",
     repo: "https://github.com/tderuvo/mentalfu",
