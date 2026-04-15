@@ -31,6 +31,16 @@ const sites = [
   },
   {
     id: "03",
+    name: "Tony DeRuvo",
+    url: "https://tonyderuvo.com",
+    repo: "https://github.com/tderuvo/tonyderuvo",
+    desc: "Personal site. Builder, creator, entrepreneur — a home for everything I'm working on and thinking about.",
+    tags: ["Personal", "Portfolio"],
+    status: "live",
+    color: BLUE,
+  },
+  {
+    id: "05",
     name: "MentalFu",
     url: "https://meek-truffle-5a0eb5.netlify.app",
     repo: "https://github.com/tderuvo/mentalfu",
