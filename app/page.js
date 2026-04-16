@@ -51,6 +51,16 @@ const sites = [
   },
   {
     id: "05",
+    name: "RoadGhost Systems",
+    url: "https://roadghost-systems.netlify.app",
+    repo: "https://github.com/tderuvo/roadghost",
+    desc: "Advanced multi-spectral concealment and battlefield deception platforms for distributed air operations in contested environments.",
+    tags: ["Defense", "Concept", "Design"],
+    status: "live",
+    color: BLUE,
+  },
+  {
+    id: "06",
     name: "Tony DeRuvo",
     url: "https://tonyderuvo.com",
     repo: "https://github.com/tderuvo/tonyderuvo",
@@ -60,7 +70,7 @@ const sites = [
     color: BLUE,
   },
   {
-    id: "06",
+    id: "07",
     name: "VitaStax",
     url: "https://vitastax.netlify.app",
     repo: "https://github.com/tderuvo/vitastax-next",
