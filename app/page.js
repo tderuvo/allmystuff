@@ -11,16 +11,6 @@ const GRID   = 4; // border thickness
 const sites = [
   {
     id: "01",
-    name: "VitaStax",
-    url: "https://vitastax.netlify.app",
-    repo: "https://github.com/tderuvo/vitastax-next",
-    desc: "Personalised supplement stacks in daily packs. DTC subscription brand built for health-conscious adults.",
-    tags: ["Health", "Subscription", "DTC"],
-    status: "live",
-    color: BLUE,
-  },
-  {
-    id: "02",
     name: "Bayou Squeeze",
     url: "https://bayousqueeze.com",
     repo: "https://github.com/tderuvo/bayousqueeze",
@@ -30,17 +20,7 @@ const sites = [
     color: RED,
   },
   {
-    id: "03",
-    name: "Tony DeRuvo",
-    url: "https://tonyderuvo.com",
-    repo: "https://github.com/tderuvo/tonyderuvo",
-    desc: "Personal site. Builder, creator, entrepreneur — a home for everything I'm working on and thinking about.",
-    tags: ["Personal", "Portfolio"],
-    status: "live",
-    color: BLUE,
-  },
-  {
-    id: "04",
+    id: "02",
     name: "Branded Messaging",
     url: "https://brandedmessaging.com",
     repo: "https://github.com/tderuvo/brandedmessaging-next",
@@ -50,7 +30,7 @@ const sites = [
     color: RED,
   },
   {
-    id: "05",
+    id: "03",
     name: "MentalFu",
     url: "https://meek-truffle-5a0eb5.netlify.app",
     repo: "https://github.com/tderuvo/mentalfu",
@@ -58,6 +38,26 @@ const sites = [
     tags: ["Publishing", "Books", "Wellness"],
     status: "live",
     color: YELLOW,
+  },
+  {
+    id: "04",
+    name: "Tony DeRuvo",
+    url: "https://tonyderuvo.com",
+    repo: "https://github.com/tderuvo/tonyderuvo",
+    desc: "Personal site. Builder, creator, entrepreneur — a home for everything I'm working on and thinking about.",
+    tags: ["Personal", "Portfolio"],
+    status: "live",
+    color: BLUE,
+  },
+  {
+    id: "05",
+    name: "VitaStax",
+    url: "https://vitastax.netlify.app",
+    repo: "https://github.com/tderuvo/vitastax-next",
+    desc: "Personalised supplement stacks in daily packs. DTC subscription brand built for health-conscious adults.",
+    tags: ["Health", "Subscription", "DTC"],
+    status: "live",
+    color: BLUE,
   },
 ];
 
