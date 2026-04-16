@@ -31,6 +31,16 @@ const sites = [
   },
   {
     id: "03",
+    name: "Burn My Secret",
+    url: "https://burnmysecret.com",
+    repo: "https://github.com/tderuvo/burnmysecret",
+    desc: "Share a secret that self-destructs after it's read. Private, ephemeral, one-time messages.",
+    tags: ["Privacy", "Tools"],
+    status: "live",
+    color: RED,
+  },
+  {
+    id: "04",
     name: "MentalFu",
     url: "https://meek-truffle-5a0eb5.netlify.app",
     repo: "https://github.com/tderuvo/mentalfu",
@@ -40,7 +50,7 @@ const sites = [
     color: YELLOW,
   },
   {
-    id: "04",
+    id: "05",
     name: "Tony DeRuvo",
     url: "https://tonyderuvo.com",
     repo: "https://github.com/tderuvo/tonyderuvo",
@@ -50,7 +60,7 @@ const sites = [
     color: BLUE,
   },
   {
-    id: "05",
+    id: "06",
     name: "VitaStax",
     url: "https://vitastax.netlify.app",
     repo: "https://github.com/tderuvo/vitastax-next",
