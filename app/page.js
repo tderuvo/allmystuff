@@ -6,6 +6,7 @@ const BLACK  = "#0A0A0A";
 const RED    = "#D62828";
 const BLUE   = "#1B4FD8";
 const YELLOW = "#F5C400";
+const GREEN  = "#2A5C45";
 const GRID   = 4; // border thickness
 
 const sites = [
@@ -61,6 +62,16 @@ const sites = [
   },
   {
     id: "06",
+    name: "The Workout Bible",
+    url: "https://the-workout-bible.netlify.app",
+    repo: "https://github.com/tderuvo/workoutbible",
+    desc: "A visual bodyweight workout poster system for adults who want to get back into shape — no equipment, no confusion, no gym pressure.",
+    tags: ["Fitness", "Product", "Design"],
+    status: "live",
+    color: GREEN,
+  },
+  {
+    id: "07",
     name: "Tony DeRuvo",
     url: "https://tonyderuvo.com",
     repo: "https://github.com/tderuvo/tonyderuvo",
@@ -70,7 +81,7 @@ const sites = [
     color: BLUE,
   },
   {
-    id: "07",
+    id: "08",
     name: "VitaStax",
     url: "https://vitastax.netlify.app",
     repo: "https://github.com/tderuvo/vitastax-next",
