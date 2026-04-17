@@ -13,7 +13,7 @@ const sites = [
   {
     id: "01",
     name: "Bayou Squeeze",
-    url: "https://bayousqueeze.com",
+    url: "https://reliable-liger-81a606.netlify.app",
     repo: "https://github.com/tderuvo/bayousqueeze",
     desc: "Squeezeable Cajun meat paste. A new category — protein as a condiment. Southern-inspired, shelf-stable.",
     tags: ["Food", "CPG", "Brand"],
