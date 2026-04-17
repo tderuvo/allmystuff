@@ -90,6 +90,16 @@ const sites = [
     status: "live",
     color: BLUE,
   },
+  {
+    id: "09",
+    name: "NYK Decoder",
+    url: "https://nyk-decoder.netlify.app",
+    repo: "https://github.com/tderuvo/nyk-decoder",
+    desc: "A secret-keyword-gated web proxy. Enter the right word and browse privately through a server-side proxy — the target site never sees your IP.",
+    tags: ["Privacy", "Tools", "Stealth"],
+    status: "live",
+    color: RED,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
