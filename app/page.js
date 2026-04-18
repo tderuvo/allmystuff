@@ -7,6 +7,7 @@ const RED    = "#D62828";
 const BLUE   = "#1B4FD8";
 const YELLOW = "#F5C400";
 const GREEN  = "#2A5C45";
+const PINK   = "#B5546A";
 const GRID   = 4; // border thickness
 
 const sites = [
@@ -99,6 +100,16 @@ const sites = [
     tags: ["Privacy", "Tools", "Stealth"],
     status: "live",
     color: RED,
+  },
+  {
+    id: "10",
+    name: "Mimi & Coco",
+    url: "https://mimi-coco.netlify.app",
+    repo: "https://github.com/tderuvo/mimi-coco",
+    desc: "Italian-Canadian heritage fragrance and lifestyle brand. Four signature scents, curated objects, and the Art of Living — quiet luxury for modern North American women.",
+    tags: ["Fragrance", "Lifestyle", "Brand"],
+    status: "live",
+    color: PINK,
   },
 ];
 
