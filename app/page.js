@@ -111,6 +111,16 @@ const sites = [
     status: "live",
     color: PINK,
   },
+  {
+    id: "11",
+    name: "WristWalker",
+    url: "https://wristwalker.netlify.app",
+    repo: "https://github.com/tderuvo/wristwalker",
+    desc: "Wrist-mounted dog leash system for city dog owners who want secure control when distractions happen. Premium DTC storefront — four colorways, one mission.",
+    tags: ["Pet", "DTC", "Safety"],
+    status: "live",
+    color: GREEN,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
