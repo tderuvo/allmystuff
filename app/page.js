@@ -113,7 +113,18 @@ const sites = [
   },
   {
     id: "11",
+    name: "Guitaraoke",
+    url: "https://github.com/tderuvo/guitaraoke",
+    repo: "https://github.com/tderuvo/guitaraoke",
+    desc: "Karaoke for guitarists. Upload a song, paste a ChordPro chart, and play along with synced lyrics and chord diagrams — then export a karaoke video.",
+    tags: ["Music", "Tools", "Creative"],
+    status: "building",
+    color: GREEN,
+  },
+  {
+    id: "12",
     name: "WristWalker",
+
     url: "https://wristwalker.netlify.app",
     repo: "https://github.com/tderuvo/wristwalker",
     desc: "Wrist-mounted dog leash system for city dog owners who want secure control when distractions happen. Premium DTC storefront — four colorways, one mission.",
