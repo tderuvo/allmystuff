@@ -10,6 +10,24 @@ const GREEN  = "#2A5C45";
 const PINK   = "#B5546A";
 const GRID   = 4; // border thickness
 
+const CSS = `
+  @media (max-width: 768px) {
+    .ams-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .ams-sidebar      { display: none !important; }
+    .ams-footer-left  { display: none !important; }
+    .ams-header-left  { border-right: none !important; padding: 1.5rem !important; }
+    .ams-header-right { padding: 1.5rem !important; }
+    .ams-main         { border-left: none !important; }
+    .ams-footer-right { border-left: none !important; }
+    .ams-site-row     { grid-template-columns: 40px 1fr !important; min-height: 0 !important; }
+    .ams-status-col   { display: none !important; }
+    .ams-mobile-badge { display: inline-block !important; }
+  }
+  .ams-mobile-badge { display: none; }
+`;
+
 const sites = [
   {
     id: "01",
@@ -142,9 +160,10 @@ export default function AllMyStuff() {
 
   return (
     <div style={{ minHeight: "100vh", background: WHITE }}>
+      <style>{CSS}</style>
 
       {/* ── MONDRIAN GRID LAYOUT ── */}
-      <div style={{
+      <div className="ams-grid" style={{
         display: "grid",
         gridTemplateColumns: "280px 1fr",
         gridTemplateRows: "auto 1fr auto",
@@ -153,7 +172,7 @@ export default function AllMyStuff() {
       }}>
 
         {/* ── TOP-LEFT: Big color block with title ── */}
-        <div style={{
+        <div className="ams-header-left" style={{
           background: RED,
           borderRight: `${GRID}px solid ${BLACK}`,
           borderBottom: `${GRID}px solid ${BLACK}`,
@@ -179,7 +198,7 @@ export default function AllMyStuff() {
         </div>
 
         {/* ── TOP-RIGHT: Yellow stat bar ── */}
-        <div style={{
+        <div className="ams-header-right" style={{
           background: YELLOW,
           borderBottom: `${GRID}px solid ${BLACK}`,
           padding: "2.5rem 3rem",
@@ -221,7 +240,7 @@ export default function AllMyStuff() {
         </div>
 
         {/* ── LEFT SIDEBAR: Blue block + decorative squares ── */}
-        <div style={{
+        <div className="ams-sidebar" style={{
           borderRight: `${GRID}px solid ${BLACK}`,
           display: "grid",
           gridTemplateRows: "1fr 120px 80px",
@@ -232,7 +251,7 @@ export default function AllMyStuff() {
         </div>
 
         {/* ── MAIN: Project list ── */}
-        <div style={{ background: WHITE }}>
+        <div className="ams-main" style={{ background: WHITE }}>
           {sites.map((site, i) => {
             const isHovered = hovered === site.id;
             return (
@@ -243,6 +262,7 @@ export default function AllMyStuff() {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setHovered(site.id)}
                 onMouseLeave={() => setHovered(null)}
+                className="ams-site-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns: `${GRID * 2 + 48}px 1fr auto`,
@@ -276,6 +296,15 @@ export default function AllMyStuff() {
                   flexDirection: "column", justifyContent: "center", gap: "0.6rem" }}>
                   <div style={{ display: "flex", alignItems: "center",
                     gap: "1rem", flexWrap: "wrap" }}>
+                    {/* Mobile-only status pill */}
+                    <span className="ams-mobile-badge" style={{
+                      fontSize: "0.52rem", fontWeight: 900, letterSpacing: "0.16em",
+                      textTransform: "uppercase", padding: "0.2rem 0.55rem",
+                      background: isHovered ? "rgba(0,0,0,0.15)" : statusColor[site.status],
+                      color: site.status === "building" && !isHovered ? BLACK : WHITE,
+                    }}>
+                      {statusLabel[site.status]}
+                    </span>
                     <span style={{
                       fontSize: "1.4rem", fontWeight: 900,
                       letterSpacing: "-0.02em", textTransform: "uppercase",
@@ -330,7 +359,7 @@ export default function AllMyStuff() {
                 </div>
 
                 {/* Status badge */}
-                <div style={{
+                <div className="ams-status-col" style={{
                   borderLeft: `${GRID}px solid ${BLACK}`,
                   display: "flex", alignItems: "center", justifyContent: "center",
                   padding: "1.5rem 1.25rem",
@@ -370,7 +399,7 @@ export default function AllMyStuff() {
         </div>
 
         {/* ── BOTTOM-LEFT: small red square ── */}
-        <div style={{
+        <div className="ams-footer-left" style={{
           borderRight: `${GRID}px solid ${BLACK}`,
           borderTop: `${GRID}px solid ${BLACK}`,
           background: RED,
@@ -381,7 +410,7 @@ export default function AllMyStuff() {
         </div>
 
         {/* ── BOTTOM-RIGHT: footer ── */}
-        <div style={{
+        <div className="ams-footer-right" style={{
           borderTop: `${GRID}px solid ${BLACK}`,
           background: BLACK,
           padding: "1.5rem 3rem",
