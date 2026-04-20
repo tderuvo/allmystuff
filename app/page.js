@@ -84,7 +84,7 @@ const sites = [
   {
     id: "08",
     name: "VitaStax",
-    url: "https://vitastax.netlify.app",
+    url: "https://www.vitastax.com",
     repo: "https://github.com/tderuvo/vitastax-next",
     desc: "Personalised supplement stacks in daily packs. DTC subscription brand built for health-conscious adults.",
     tags: ["Health", "Subscription", "DTC"],
