@@ -114,7 +114,7 @@ const sites = [
   {
     id: "11",
     name: "Guitaraoke",
-    url: "https://github.com/tderuvo/guitaraoke",
+    url: "https://guitaraoke.netlify.app",
     repo: "https://github.com/tderuvo/guitaraoke",
     desc: "Karaoke for guitarists. Upload a song, paste a ChordPro chart, and play along with synced lyrics and chord diagrams — then export a karaoke video.",
     tags: ["Music", "Tools", "Creative"],
