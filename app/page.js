@@ -150,6 +150,16 @@ const sites = [
     status: "live",
     color: GREEN,
   },
+  {
+    id: "13",
+    name: "Riffarama",
+    url: "https://riffarama.netlify.app",
+    repo: "https://github.com/tderuvo/riffarama",
+    desc: "YouTube karaoke for guitarists. Paste ChordPro lyrics, tap to sync them to any YouTube backing track, and watch chords scroll in real time as you play.",
+    tags: ["Music", "Tools", "Creative"],
+    status: "live",
+    color: YELLOW,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
