@@ -160,6 +160,16 @@ const sites = [
     status: "live",
     color: YELLOW,
   },
+  {
+    id: "14",
+    name: "The Shpacones",
+    url: "https://shpacones.netlify.app",
+    repo: "https://github.com/tderuvo/shpacones",
+    desc: "A recording recovered. Cinematic archive site for a fictional late-70s rock band — Echoes From The Past. Film grain, tape hiss, analog warmth.",
+    tags: ["Music", "Concept", "Creative"],
+    status: "building",
+    color: YELLOW,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
