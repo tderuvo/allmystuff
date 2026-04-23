@@ -170,6 +170,16 @@ const sites = [
     status: "building",
     color: YELLOW,
   },
+  {
+    id: "15",
+    name: "Driftarama",
+    url: "https://driftarama.netlify.app",
+    repo: "https://github.com/tderuvo/driftarama",
+    desc: "A lightweight place to hold everything on your mind — so you don't have to. Drop anything in before it slips, and pick up the thread when you're ready.",
+    tags: ["Tools", "Productivity", "Personal"],
+    status: "live",
+    color: YELLOW,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
