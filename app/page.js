@@ -62,7 +62,7 @@ const sites = [
   {
     id: "04",
     name: "MentalFu",
-    url: "https://meek-truffle-5a0eb5.netlify.app",
+    url: "https://mentalfu.netlify.app",
     repo: "https://github.com/tderuvo/mentalfu",
     desc: "Kung Fu for your mind. A publishing brand built around practical mental frameworks and a 5-book series.",
     tags: ["Publishing", "Books", "Wellness"],
