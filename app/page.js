@@ -180,6 +180,16 @@ const sites = [
     status: "live",
     color: YELLOW,
   },
+  {
+    id: "16",
+    name: "FloofIt",
+    url: "https://floofit.netlify.app",
+    repo: "https://github.com/tderuvo/floofit",
+    desc: "Write it. Floof it. Let it fly. A playful send-it-out ritual tool — type a wish, goal, thought, or tiny hope and watch it float away into the digital sky.",
+    tags: ["Tools", "Fun", "Ritual"],
+    status: "live",
+    color: BLUE,
+  },
 ];
 
 const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
