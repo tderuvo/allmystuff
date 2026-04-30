@@ -123,95 +123,6 @@ const sites = [
   },
 ];
 
-const CSS = `
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  .cursor {
-    animation: blink 1.1s step-end infinite;
-    display: inline-block;
-  }
-
-  .site-link {
-    display: block;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid #d8d4c8;
-    text-decoration: none;
-    color: #1a1a1a;
-    transition: padding-left 0.15s ease;
-  }
-
-  .site-link:hover,
-  .site-link:focus {
-    padding-left: 0.75rem;
-    outline: none;
-  }
-
-  .site-link:hover .site-name,
-  .site-link:focus .site-name {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .site-name {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  .site-status {
-    font-size: 0.6rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #999;
-    border: 1px solid #ccc;
-    padding: 0.1rem 0.35rem;
-    flex-shrink: 0;
-  }
-
-  .site-desc {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: #555;
-    font-weight: 400;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  .sort-btn {
-    background: none;
-    border: 1px solid #ccc;
-    color: #999;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
-
-  .sort-btn:hover { border-color: #888; color: #444; }
-  .sort-btn.active { border-color: #1a1a1a; color: #1a1a1a; }
-
-  @media (max-width: 540px) {
-    .site-name { font-size: 0.9rem; }
-    .site-desc { font-size: 0.8rem; }
-    .sort-btn { font-size: 0.55rem; padding: 0.2rem 0.4rem; }
-  }
-`;
-
 export default function AllMyStuff() {
   const [alpha, setAlpha] = useState(false);
   const displayed = alpha
@@ -220,7 +131,6 @@ export default function AllMyStuff() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#f4f0e4" }}>
-      <style>{CSS}</style>
       <div style={{
         maxWidth: 600,
         margin: "0 auto",
