@@ -1,472 +1,259 @@
 "use client";
-import { useState } from "react";
-
-const WHITE  = "#F5F0E8";
-const BLACK  = "#0A0A0A";
-const RED    = "#D62828";
-const BLUE   = "#1B4FD8";
-const YELLOW = "#F5C400";
-const GREEN  = "#2A5C45";
-const PINK   = "#B5546A";
-const GRID   = 4; // border thickness
-
-const CSS = `
-  @media (max-width: 768px) {
-    .ams-grid {
-      grid-template-columns: 1fr !important;
-    }
-    .ams-sidebar      { display: none !important; }
-    .ams-footer-left  { display: none !important; }
-    .ams-header-left  { border-right: none !important; padding: 1.5rem !important; }
-    .ams-header-right { padding: 1.5rem !important; }
-    .ams-main         { border-left: none !important; }
-    .ams-footer-right { border-left: none !important; }
-    .ams-site-row     { grid-template-columns: 40px 1fr !important; min-height: 0 !important; }
-    .ams-status-col   { display: none !important; }
-    .ams-mobile-badge { display: inline-block !important; }
-  }
-  .ams-mobile-badge { display: none; }
-`;
 
 const sites = [
   {
     id: "01",
     name: "Bayou Squeeze",
     url: "https://reliable-liger-81a606.netlify.app",
-    repo: "https://github.com/tderuvo/bayousqueeze",
     desc: "Squeezeable Cajun meat paste. A new category — protein as a condiment. Southern-inspired, shelf-stable.",
-    tags: ["Food", "CPG", "Brand"],
     status: "building",
-    color: RED,
   },
   {
     id: "02",
     name: "Branded Messaging",
     url: "https://brandedmessaging.com",
-    repo: "https://github.com/tderuvo/brandedmessaging-next",
     desc: "The human-friendly side of RCS — verified, rich, branded business messaging across North America.",
-    tags: ["Messaging", "B2B", "RCS"],
     status: "building",
-    color: RED,
   },
   {
     id: "03",
     name: "Burn My Secret",
     url: "https://burnmysecret.com",
-    repo: "https://github.com/tderuvo/burnmysecret",
     desc: "Share a secret that self-destructs after it's read. Private, ephemeral, one-time messages.",
-    tags: ["Privacy", "Tools"],
     status: "live",
-    color: RED,
   },
   {
     id: "04",
     name: "MentalFu",
     url: "https://mentalfu.netlify.app",
-    repo: "https://github.com/tderuvo/mentalfu",
     desc: "Kung Fu for your mind. A publishing brand built around practical mental frameworks and a 5-book series.",
-    tags: ["Publishing", "Books", "Wellness"],
     status: "live",
-    color: YELLOW,
   },
   {
     id: "05",
     name: "RoadGhost Systems",
     url: "https://roadghost-systems.netlify.app",
-    repo: "https://github.com/tderuvo/roadghost",
     desc: "Advanced multi-spectral concealment and battlefield deception platforms for distributed air operations in contested environments.",
-    tags: ["Defense", "Concept", "Design"],
     status: "live",
-    color: BLUE,
   },
   {
     id: "06",
     name: "The Workout Bible",
     url: "https://the-workout-bible.netlify.app",
-    repo: "https://github.com/tderuvo/workoutbible",
     desc: "A visual bodyweight workout poster system for adults who want to get back into shape — no equipment, no confusion, no gym pressure.",
-    tags: ["Fitness", "Product", "Design"],
     status: "live",
-    color: GREEN,
   },
   {
     id: "07",
     name: "Tony DeRuvo",
     url: "https://tonyderuvo.com",
-    repo: "https://github.com/tderuvo/tonyderuvo",
     desc: "Personal site. Builder, creator, entrepreneur — a home for everything I'm working on and thinking about.",
-    tags: ["Personal", "Portfolio"],
     status: "live",
-    color: BLUE,
   },
   {
     id: "08",
     name: "VitaStax",
     url: "https://www.vitastax.com",
-    repo: "https://github.com/tderuvo/vitastax-next",
     desc: "Personalised supplement stacks in daily packs. DTC subscription brand built for health-conscious adults.",
-    tags: ["Health", "Subscription", "DTC"],
     status: "live",
-    color: BLUE,
   },
   {
     id: "09",
     name: "NYK Decoder",
     url: "https://nyk-decoder.netlify.app",
-    repo: "https://github.com/tderuvo/nyk-decoder",
     desc: "A secret-keyword-gated web proxy. Enter the right word and browse privately through a server-side proxy — the target site never sees your IP.",
-    tags: ["Privacy", "Tools", "Stealth"],
     status: "live",
-    color: RED,
   },
   {
     id: "10",
     name: "Mimi & Coco",
     url: "https://mimi-coco.netlify.app",
-    repo: "https://github.com/tderuvo/mimi-coco",
     desc: "Italian-Canadian heritage fragrance and lifestyle brand. Four signature scents, curated objects, and the Art of Living — quiet luxury for modern North American women.",
-    tags: ["Fragrance", "Lifestyle", "Brand"],
     status: "live",
-    color: PINK,
   },
   {
     id: "11",
     name: "Guitaraoke",
     url: "https://guitaraoke.netlify.app",
-    repo: "https://github.com/tderuvo/guitaraoke",
     desc: "Karaoke for guitarists. Upload a song, paste a ChordPro chart, and play along with synced lyrics and chord diagrams — then export a karaoke video.",
-    tags: ["Music", "Tools", "Creative"],
     status: "building",
-    color: GREEN,
   },
   {
     id: "12",
     name: "WristWalker",
-
     url: "https://wristwalker.netlify.app",
-    repo: "https://github.com/tderuvo/wristwalker",
     desc: "Wrist-mounted dog leash system for city dog owners who want secure control when distractions happen. Premium DTC storefront — four colorways, one mission.",
-    tags: ["Pet", "DTC", "Safety"],
     status: "live",
-    color: GREEN,
   },
   {
     id: "13",
     name: "Riffarama",
     url: "https://riffarama.netlify.app",
-    repo: "https://github.com/tderuvo/riffarama",
     desc: "YouTube karaoke for guitarists. Paste ChordPro lyrics, tap to sync them to any YouTube backing track, and watch chords scroll in real time as you play.",
-    tags: ["Music", "Tools", "Creative"],
     status: "live",
-    color: YELLOW,
   },
   {
     id: "14",
     name: "The Shpacones",
     url: "https://shpacones.netlify.app",
-    repo: "https://github.com/tderuvo/shpacones",
     desc: "A recording recovered. Cinematic archive site for a fictional late-70s rock band — Echoes From The Past. Film grain, tape hiss, analog warmth.",
-    tags: ["Music", "Concept", "Creative"],
     status: "building",
-    color: YELLOW,
   },
   {
     id: "15",
     name: "Driftarama",
     url: "https://driftarama.netlify.app",
-    repo: "https://github.com/tderuvo/driftarama",
     desc: "A lightweight place to hold everything on your mind — so you don't have to. Drop anything in before it slips, and pick up the thread when you're ready.",
-    tags: ["Tools", "Productivity", "Personal"],
     status: "live",
-    color: YELLOW,
   },
   {
     id: "16",
     name: "FloofIt",
     url: "https://floofit.netlify.app",
-    repo: "https://github.com/tderuvo/floofit",
     desc: "Write it. Floof it. Let it fly. A playful send-it-out ritual tool — type a wish, goal, thought, or tiny hope and watch it float away into the digital sky.",
-    tags: ["Tools", "Fun", "Ritual"],
     status: "live",
-    color: BLUE,
   },
 ];
 
-const statusLabel = { live: "LIVE", building: "WIP", idea: "IDEA" };
-const statusColor = { live: BLUE, building: RED, idea: YELLOW };
+const CSS = `
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .cursor {
+    animation: blink 1.1s step-end infinite;
+    display: inline-block;
+  }
+
+  .site-link {
+    display: block;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid #d8d4c8;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: padding-left 0.15s ease;
+  }
+
+  .site-link:hover,
+  .site-link:focus {
+    padding-left: 0.75rem;
+    outline: none;
+  }
+
+  .site-link:hover .site-name,
+  .site-link:focus .site-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .site-name {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .site-status {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    border: 1px solid #ccc;
+    padding: 0.1rem 0.35rem;
+    vertical-align: middle;
+  }
+
+  .site-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #555;
+    font-weight: 400;
+  }
+
+  @media (max-width: 480px) {
+    .site-name { font-size: 0.95rem; }
+    .site-desc { font-size: 0.82rem; }
+  }
+`;
 
 export default function AllMyStuff() {
-  const [hovered, setHovered] = useState(null);
-
   return (
-    <div style={{ minHeight: "100vh", background: WHITE }}>
+    <div style={{ minHeight: "100vh", background: "#f4f0e4" }}>
       <style>{CSS}</style>
-
-      {/* ── MONDRIAN GRID LAYOUT ── */}
-      <div className="ams-grid" style={{
-        display: "grid",
-        gridTemplateColumns: "280px 1fr",
-        gridTemplateRows: "auto 1fr auto",
-        minHeight: "100vh",
-        border: `${GRID}px solid ${BLACK}`,
+      <div style={{
+        maxWidth: 600,
+        margin: "0 auto",
+        padding: "3rem 1.25rem 5rem",
       }}>
 
-        {/* ── TOP-LEFT: Big color block with title ── */}
-        <div className="ams-header-left" style={{
-          background: RED,
-          borderRight: `${GRID}px solid ${BLACK}`,
-          borderBottom: `${GRID}px solid ${BLACK}`,
-          padding: "2.5rem 2rem",
-          display: "flex", flexDirection: "column",
-          justifyContent: "space-between",
-        }}>
-          <div>
-            <div style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "rgba(255,255,255,0.6)",
-              marginBottom: "0.75rem" }}>
-              Index
-            </div>
-            <h1 style={{ fontSize: "2.6rem", fontWeight: 900, lineHeight: 0.95,
-              letterSpacing: "-0.02em", color: WHITE, textTransform: "uppercase" }}>
-              All<br />My<br />Stuff
-            </h1>
-          </div>
-          <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em",
-            textTransform: "uppercase", color: "rgba(255,255,255,0.55)" }}>
-            Tony DeRuvo
-          </div>
-        </div>
-
-        {/* ── TOP-RIGHT: Yellow stat bar ── */}
-        <div className="ams-header-right" style={{
-          background: YELLOW,
-          borderBottom: `${GRID}px solid ${BLACK}`,
-          padding: "2.5rem 3rem",
-          display: "flex", alignItems: "flex-end",
-          justifyContent: "space-between",
-          flexWrap: "wrap", gap: "1rem",
-        }}>
-          <div>
-            <div style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "rgba(0,0,0,0.45)",
-              marginBottom: "0.5rem" }}>
-              Things I'm building
-            </div>
-            <div style={{ fontSize: "4rem", fontWeight: 900, lineHeight: 1,
-              letterSpacing: "-0.04em", color: BLACK }}>
-              {sites.length}
-            </div>
-          </div>
-          <div style={{ display: "flex", gap: "2.5rem" }}>
-            <div>
-              <div style={{ fontSize: "2rem", fontWeight: 900, color: BLACK, lineHeight: 1 }}>
-                {sites.filter(s => s.status === "live").length}
-              </div>
-              <div style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.16em",
-                textTransform: "uppercase", color: "rgba(0,0,0,0.45)", marginTop: 4 }}>
-                Live
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: "2rem", fontWeight: 900, color: BLACK, lineHeight: 1 }}>
-                {sites.filter(s => s.status === "building").length}
-              </div>
-              <div style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.16em",
-                textTransform: "uppercase", color: "rgba(0,0,0,0.45)", marginTop: 4 }}>
-                Building
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ── LEFT SIDEBAR: Blue block + decorative squares ── */}
-        <div className="ams-sidebar" style={{
-          borderRight: `${GRID}px solid ${BLACK}`,
-          display: "grid",
-          gridTemplateRows: "1fr 120px 80px",
-        }}>
-          <div style={{ background: BLUE, borderBottom: `${GRID}px solid ${BLACK}` }} />
-          <div style={{ background: YELLOW, borderBottom: `${GRID}px solid ${BLACK}` }} />
-          <div style={{ background: WHITE }} />
-        </div>
-
-        {/* ── MAIN: Project list ── */}
-        <div className="ams-main" style={{ background: WHITE }}>
-          {sites.map((site, i) => {
-            const isHovered = hovered === site.id;
-            return (
-              <a
-                key={site.id}
-                href={site.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setHovered(site.id)}
-                onMouseLeave={() => setHovered(null)}
-                className="ams-site-row"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: `${GRID * 2 + 48}px 1fr auto`,
-                  borderBottom: i < sites.length - 1 ? `${GRID}px solid ${BLACK}` : "none",
-                  background: isHovered ? site.color : WHITE,
-                  transition: "background 0.12s",
-                  cursor: "pointer",
-                  textDecoration: "none",
-                  minHeight: 160,
-                }}
-              >
-                {/* Color accent strip + number */}
-                <div style={{
-                  background: site.color,
-                  borderRight: `${GRID}px solid ${BLACK}`,
-                  display: "flex", flexDirection: "column",
-                  alignItems: "center", justifyContent: "center",
-                  padding: "1rem 0",
-                  transition: "filter 0.12s",
-                  filter: isHovered ? "brightness(0.88)" : "none",
-                }}>
-                  <span style={{ fontSize: "0.62rem", fontWeight: 900,
-                    letterSpacing: "0.1em", color: site.color === YELLOW ? BLACK : WHITE,
-                    writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
-                    {site.id}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div style={{ padding: "2rem 2.5rem", display: "flex",
-                  flexDirection: "column", justifyContent: "center", gap: "0.6rem" }}>
-                  <div style={{ display: "flex", alignItems: "center",
-                    gap: "1rem", flexWrap: "wrap" }}>
-                    {/* Mobile-only status pill */}
-                    <span className="ams-mobile-badge" style={{
-                      fontSize: "0.52rem", fontWeight: 900, letterSpacing: "0.16em",
-                      textTransform: "uppercase", padding: "0.2rem 0.55rem",
-                      background: isHovered ? "rgba(0,0,0,0.15)" : statusColor[site.status],
-                      color: site.status === "building" && !isHovered ? BLACK : WHITE,
-                    }}>
-                      {statusLabel[site.status]}
-                    </span>
-                    <span style={{
-                      fontSize: "1.4rem", fontWeight: 900,
-                      letterSpacing: "-0.02em", textTransform: "uppercase",
-                      color: isHovered ? (site.color === YELLOW ? BLACK : WHITE) : BLACK,
-                      transition: "color 0.12s",
-                    }}>
-                      {site.name}
-                    </span>
-                    <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-                      {site.tags.map(tag => (
-                        <span key={tag} style={{
-                          fontSize: "0.55rem", fontWeight: 900,
-                          letterSpacing: "0.14em", textTransform: "uppercase",
-                          color: isHovered ? (site.color === YELLOW ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.5)") : "rgba(0,0,0,0.35)",
-                          border: `2px solid ${isHovered ? (site.color === YELLOW ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.3)") : "rgba(0,0,0,0.15)"}`,
-                          padding: "0.15rem 0.5rem",
-                          transition: "all 0.12s",
-                        }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <p style={{
-                    fontSize: "0.85rem", fontWeight: 400, lineHeight: 1.65,
-                    color: isHovered ? (site.color === YELLOW ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.75)") : "rgba(0,0,0,0.55)",
-                    maxWidth: 520, transition: "color 0.12s",
-                    fontFamily: "Arial, sans-serif",
-                  }}>
-                    {site.desc}
-                  </p>
-
-                  <div style={{ display: "flex", gap: "1.5rem", marginTop: "0.25rem" }}>
-                    <span style={{
-                      fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.04em",
-                      color: isHovered ? (site.color === YELLOW ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.6)") : "rgba(0,0,0,0.35)",
-                      transition: "color 0.12s",
-                    }}>
-                      {site.url.replace("https://", "")} ↗
-                    </span>
-                    <a href={site.repo} target="_blank" rel="noopener noreferrer"
-                      onClick={e => e.stopPropagation()}
-                      style={{
-                        fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.04em",
-                        color: isHovered ? (site.color === YELLOW ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.6)") : "rgba(0,0,0,0.35)",
-                        transition: "color 0.12s",
-                      }}>
-                      github ↗
-                    </a>
-                  </div>
-                </div>
-
-                {/* Status badge */}
-                <div className="ams-status-col" style={{
-                  borderLeft: `${GRID}px solid ${BLACK}`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  padding: "1.5rem 1.25rem",
-                  background: isHovered ? "rgba(0,0,0,0.08)" : statusColor[site.status],
-                  transition: "background 0.12s",
-                  minWidth: 80,
-                }}>
-                  <span style={{
-                    fontSize: "0.6rem", fontWeight: 900,
-                    letterSpacing: "0.18em", textTransform: "uppercase",
-                    writingMode: "vertical-rl", transform: "rotate(180deg)",
-                    color: site.status === "building" && !isHovered ? BLACK : WHITE,
-                  }}>
-                    {statusLabel[site.status]}
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-
-          {/* Next thing placeholder */}
+        {/* Header */}
+        <div style={{ marginBottom: "3rem" }}>
           <div style={{
-            display: "grid",
-            gridTemplateColumns: `${GRID * 2 + 48}px 1fr`,
-            borderTop: `${GRID}px solid ${BLACK}`,
-            minHeight: 80, opacity: 0.25,
+            fontSize: "0.65rem",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "#aaa",
+            marginBottom: "0.9rem",
           }}>
-            <div style={{ background: BLACK, borderRight: `${GRID}px solid ${BLACK}` }} />
-            <div style={{ padding: "1.75rem 2.5rem", display: "flex",
-              alignItems: "center" }}>
-              <span style={{ fontSize: "0.75rem", fontWeight: 900,
-                letterSpacing: "0.14em", textTransform: "uppercase", color: BLACK }}>
-                {String(sites.length + 1).padStart(2, "0")} — next thing...
-              </span>
-            </div>
+            tony deruvo / index
+          </div>
+          <h1 style={{
+            fontSize: "1.6rem",
+            fontWeight: 700,
+            letterSpacing: "0.02em",
+            textTransform: "uppercase",
+            lineHeight: 1.1,
+          }}>
+            all my stuff<span className="cursor">_</span>
+          </h1>
+          <div style={{
+            fontSize: "0.7rem",
+            color: "#aaa",
+            marginTop: "0.75rem",
+            letterSpacing: "0.08em",
+          }}>
+            {sites.length} projects &mdash;&nbsp;
+            {sites.filter(s => s.status === "live").length} live,&nbsp;
+            {sites.filter(s => s.status === "building").length} building
           </div>
         </div>
 
-        {/* ── BOTTOM-LEFT: small red square ── */}
-        <div className="ams-footer-left" style={{
-          borderRight: `${GRID}px solid ${BLACK}`,
-          borderTop: `${GRID}px solid ${BLACK}`,
-          background: RED,
-          display: "grid", gridTemplateRows: "1fr 1fr",
-        }}>
-          <div style={{ borderBottom: `${GRID}px solid ${BLACK}`, background: WHITE }} />
-          <div style={{ background: RED }} />
+        {/* Site list */}
+        <div>
+          {sites.map((site) => (
+            <a
+              key={site.id}
+              href={site.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-link"
+            >
+              <div className="site-name">
+                {site.name}
+                {site.status === "building" && (
+                  <span className="site-status">wip</span>
+                )}
+              </div>
+              <div className="site-desc">{site.desc}</div>
+            </a>
+          ))}
         </div>
 
-        {/* ── BOTTOM-RIGHT: footer ── */}
-        <div className="ams-footer-right" style={{
-          borderTop: `${GRID}px solid ${BLACK}`,
-          background: BLACK,
-          padding: "1.5rem 3rem",
-          display: "flex", alignItems: "center",
-          justifyContent: "space-between",
+        {/* Footer */}
+        <div style={{
+          marginTop: "3rem",
+          fontSize: "0.65rem",
+          color: "#bbb",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
         }}>
-          <span style={{ fontSize: "0.62rem", fontWeight: 900, letterSpacing: "0.18em",
-            textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>
-            tderuvo · {new Date().getFullYear()}
-          </span>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
-            {[RED, BLUE, YELLOW].map(c => (
-              <div key={c} style={{ width: 12, height: 12, background: c,
-                border: `2px solid rgba(255,255,255,0.15)` }} />
-            ))}
-          </div>
+          tderuvo &middot; {new Date().getFullYear()}
         </div>
 
       </div>
