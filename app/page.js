@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const sites = [
   {
@@ -183,6 +184,22 @@ const CSS = `
     font-weight: 400;
   }
 
+  .sort-btn {
+    background: none;
+    border: 1px solid #ccc;
+    color: #999;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .sort-btn:hover { border-color: #888; color: #444; }
+  .sort-btn.active { border-color: #1a1a1a; color: #1a1a1a; }
+
   @media (max-width: 480px) {
     .site-name { font-size: 0.95rem; }
     .site-desc { font-size: 0.82rem; }
@@ -190,6 +207,11 @@ const CSS = `
 `;
 
 export default function AllMyStuff() {
+  const [alpha, setAlpha] = useState(false);
+  const displayed = alpha
+    ? [...sites].sort((a, b) => a.name.localeCompare(b.name))
+    : sites;
+
   return (
     <div style={{ minHeight: "100vh", background: "#f4f0e4" }}>
       <style>{CSS}</style>
@@ -224,16 +246,28 @@ export default function AllMyStuff() {
             color: "#aaa",
             marginTop: "0.75rem",
             letterSpacing: "0.08em",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
           }}>
-            {sites.length} projects &mdash;&nbsp;
-            {sites.filter(s => s.status === "live").length} live,&nbsp;
-            {sites.filter(s => s.status === "building").length} building
+            <span>
+              {sites.length} projects &mdash;&nbsp;
+              {sites.filter(s => s.status === "live").length} live,&nbsp;
+              {sites.filter(s => s.status === "building").length} building
+            </span>
+            <button
+              className={`sort-btn${alpha ? " active" : ""}`}
+              onClick={() => setAlpha(a => !a)}
+              title={alpha ? "Back to original order" : "Sort A–Z"}
+            >
+              A–Z
+            </button>
           </div>
         </div>
 
         {/* Site list */}
         <div>
-          {sites.map((site) => (
+          {displayed.map((site) => (
             <a
               key={site.id}
               href={site.url}
