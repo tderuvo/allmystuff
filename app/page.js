@@ -163,7 +163,10 @@ const CSS = `
     margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .site-status {
@@ -174,7 +177,7 @@ const CSS = `
     color: #999;
     border: 1px solid #ccc;
     padding: 0.1rem 0.35rem;
-    vertical-align: middle;
+    flex-shrink: 0;
   }
 
   .site-desc {
@@ -182,6 +185,8 @@ const CSS = `
     line-height: 1.65;
     color: #555;
     font-weight: 400;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .sort-btn {
@@ -200,9 +205,10 @@ const CSS = `
   .sort-btn:hover { border-color: #888; color: #444; }
   .sort-btn.active { border-color: #1a1a1a; color: #1a1a1a; }
 
-  @media (max-width: 480px) {
-    .site-name { font-size: 0.95rem; }
-    .site-desc { font-size: 0.82rem; }
+  @media (max-width: 540px) {
+    .site-name { font-size: 0.9rem; }
+    .site-desc { font-size: 0.8rem; }
+    .sort-btn { font-size: 0.55rem; padding: 0.2rem 0.4rem; }
   }
 `;
 
@@ -248,6 +254,7 @@ export default function AllMyStuff() {
             letterSpacing: "0.08em",
             display: "flex",
             alignItems: "center",
+            flexWrap: "wrap",
             gap: "0.75rem",
           }}>
             <span>
