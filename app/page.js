@@ -121,6 +121,13 @@ const sites = [
     desc: "Convert an MP3 podcast + cover image into a 1920×1080 MP4 for YouTube. Drag, drop, render — no cloud accounts, no upload limits.",
     status: "live",
   },
+  {
+    id: "18",
+    name: "Italian Card Games",
+    url: "https://italiancard.netlify.app/play-scopa-online",
+    desc: "Play classic Italian card games free in your browser. Start with Scopa — the beloved 40-card capture game — no download or account needed.",
+    status: "live",
+  },
 ];
 
 export default function AllMyStuff() {
