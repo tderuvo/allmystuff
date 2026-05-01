@@ -124,7 +124,7 @@ const sites = [
   {
     id: "18",
     name: "Italian Card Games",
-    url: "https://italiancard.netlify.app/play-scopa-online",
+    url: "https://italiancardgames.com",
     desc: "Play classic Italian card games free in your browser. Start with Scopa — the beloved 40-card capture game — no download or account needed.",
     status: "live",
   },
