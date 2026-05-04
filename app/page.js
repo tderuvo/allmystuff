@@ -128,6 +128,13 @@ const sites = [
     desc: "Play classic Italian card games free in your browser. Start with Scopa — the beloved 40-card capture game — no download or account needed.",
     status: "live",
   },
+  {
+    id: "19",
+    name: "Banker Bands",
+    url: "https://bankerbands.netlify.app",
+    desc: "From currency straps to cultural icon. A clean, minimal reference site covering what banker bands are, their history, modern uses, and more.",
+    status: "live",
+  },
 ];
 
 export default function AllMyStuff() {
