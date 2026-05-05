@@ -135,6 +135,13 @@ const sites = [
     desc: "From currency straps to cultural icon. A clean, minimal reference site covering what banker bands are, their history, modern uses, and more.",
     status: "live",
   },
+  {
+    id: "20",
+    name: "1DGJ",
+    url: "https://1dgj.netlify.app",
+    desc: "A lightweight, private link shortener focused on speed, simplicity, and reliability. Clean links, no bloat.",
+    status: "live",
+  },
 ];
 
 export default function AllMyStuff() {
