@@ -142,6 +142,13 @@ const sites = [
     desc: "A lightweight, private link shortener focused on speed, simplicity, and reliability. Clean links, no bloat.",
     status: "live",
   },
+  {
+    id: "21",
+    name: "Kanso Kitchen",
+    url: "https://kansokitchen.netlify.app",
+    desc: "Thoughtful upgrades for simple meals. Calm, practical recipes built around everyday grocery staples — starting with Trader Joe's.",
+    status: "building",
+  },
 ];
 
 export default function AllMyStuff() {
