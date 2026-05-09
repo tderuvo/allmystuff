@@ -149,6 +149,13 @@ const sites = [
     desc: "Thoughtful upgrades for simple meals. Calm, practical recipes built around everyday grocery staples — starting with Trader Joe's.",
     status: "building",
   },
+  {
+    id: "22",
+    name: "Slap Cooking",
+    url: "https://slap-cooking.netlify.app",
+    desc: "Make grocery food slap. Frozen dinners, packaged meals, and store-bought shortcuts upgraded into takeout killers. High-energy food hacks without shame.",
+    status: "live",
+  },
 ];
 
 export default function AllMyStuff() {
