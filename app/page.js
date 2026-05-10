@@ -156,6 +156,13 @@ const sites = [
     desc: "Make grocery food slap. Frozen dinners, packaged meals, and store-bought shortcuts upgraded into takeout killers. High-energy food hacks without shame.",
     status: "live",
   },
+  {
+    id: "23",
+    name: "KansoRoom",
+    url: "https://kansoroom.netlify.app",
+    desc: "A quiet listening room. Paste a Spotify or YouTube link, put a record on the turntable, and layer in ambient room effects — crackle, lo-fi, rain, night.",
+    status: "live",
+  },
 ];
 
 export default function AllMyStuff() {
