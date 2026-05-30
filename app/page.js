@@ -163,6 +163,13 @@ const sites = [
     desc: "A quiet listening room. Paste a Spotify or YouTube link, put a record on the turntable, and layer in ambient room effects — crackle, lo-fi, rain, night.",
     status: "live",
   },
+  {
+    id: "24",
+    name: "ConcertSongs",
+    url: "https://concertsongs.netlify.app",
+    desc: "The post-show experience layer for live bands. A QR-powered band room where fans can stream tracks, preorder the live recording, join the mailing list, and buy merch — all in one link.",
+    status: "building",
+  },
 ];
 
 export default function AllMyStuff() {
