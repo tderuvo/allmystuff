@@ -170,6 +170,13 @@ const sites = [
     desc: "The post-show experience layer for live bands. A QR-powered band room where fans can stream tracks, preorder the live recording, join the mailing list, and buy merch — all in one link.",
     status: "building",
   },
+  {
+    id: "25",
+    name: "AURALUK",
+    url: "https://auraluk.netlify.app",
+    desc: "A luxury dark-sky observatory retreat hidden in the mountains near Sutton, Québec. Guided telescope nights, Nordic thermal rituals, private chalets, and aurora vigils beneath Bortle Class 3 skies.",
+    status: "building",
+  },
 ];
 
 export default function AllMyStuff() {
