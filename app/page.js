@@ -177,6 +177,13 @@ const sites = [
     desc: "A luxury dark-sky observatory retreat hidden in the mountains near Sutton, Québec. Guided telescope nights, Nordic thermal rituals, private chalets, and aurora vigils beneath Bortle Class 3 skies.",
     status: "building",
   },
+  {
+    id: "26",
+    name: "Useless Commodity",
+    url: "https://www.uselesscommodity.com",
+    desc: "Wear the joke. A small-batch t-shirt label built around one very specific inside joke — retro detective shows, sitcoms, and merch for shows that never existed.",
+    status: "building",
+  },
 ];
 
 export default function AllMyStuff() {
