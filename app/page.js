@@ -184,6 +184,13 @@ const sites = [
     desc: "Wear the joke. A small-batch t-shirt label built around one very specific inside joke — retro detective shows, sitcoms, and merch for shows that never existed.",
     status: "building",
   },
+  {
+    id: "27",
+    name: "Seattle Slap",
+    url: "https://seattle-slap.netlify.app",
+    desc: "Seattle's newest handheld street food. Premium protein, bold sauces and fresh fixin's slapped into a warm, clamshell-cut steamed bun — order two, three or four like tapas.",
+    status: "building",
+  },
 ];
 
 export default function AllMyStuff() {
